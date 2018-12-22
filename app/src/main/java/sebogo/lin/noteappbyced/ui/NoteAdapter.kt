@@ -1,5 +1,6 @@
 package sebogo.lin.noteappbyced.ui
 
+
 import android.support.v7.widget.PopupMenu
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -10,29 +11,30 @@ import sebogo.lin.noteappbyced.databinding.NoteListBinding
 import sebogo.lin.noteappbyced.model.Note
 
 
-class NoteAdapter(var listNotes: List<Note>, private val clickListener: inteAdapter): RecyclerView.Adapter<NoteAdapter.lavue>() {
+class NoteAdapter(var listNotes: List<Note>,
+                  private val clickListener: inteAdapter): RecyclerView.Adapter<NoteAdapter.laVue>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): lavue {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): laVue {
         val layoutInflater =  LayoutInflater.from(parent.context)
         val binding = NoteListBinding.inflate(layoutInflater, parent, false)
-        return lavue(binding)
+        return laVue(binding)
     }
 
     override fun getItemCount(): Int {
         return listNotes.size
     }
 
-    override fun onBindViewHolder(holder: lavue, position: Int) {
+    override fun onBindViewHolder(holder: laVue, position: Int) {
         val item = listNotes[position]
         holder.bind(item)
         holder.binding.itemNoteRoot.setOnClickListener {
             clickListener.onClickItem(listNotes[position], EnumOptionMenu.EDIT)
         }
 
-        holder.binding.optionsMen.setOnClickListener {
+        holder.binding.optionsMenu.setOnClickListener {
             //creating a popup menu
-            val popup = PopupMenu(it.context, holder.binding.optionsMen)
+            val popup = PopupMenu(it.context, holder.binding.optionsMenu)
             //inflating menu from xml resource
             popup.inflate(R.menu.menu_option_list)
             popup.setOnMenuItemClickListener {
@@ -50,7 +52,7 @@ class NoteAdapter(var listNotes: List<Note>, private val clickListener: inteAdap
         }
     }
 
-    inner class lavue(val binding: NoteListBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class laVue(val binding: NoteListBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(note: Note) {
             binding.setVariable(BR.note, note)

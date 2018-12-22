@@ -2,8 +2,8 @@ package sebogo.lin.noteappbyced.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import android.os.Parcel
 import android.os.Parcelable
+import android.os.Parcel
 import android.support.annotation.NonNull
 
 

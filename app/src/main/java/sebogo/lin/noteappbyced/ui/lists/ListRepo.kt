@@ -9,7 +9,6 @@ import sebogo.lin.noteappbyced.model.Note
 class ListRepo(private val mListDao: NoteListDao) {
 
     private var shownotes: Flowable<List<Note>>? = null
-
     fun listAllNotes(): Flowable<List<Note>> {
         if (shownotes == null ){
             shownotes = mListDao.getAllNotes()
@@ -22,6 +21,5 @@ class ListRepo(private val mListDao: NoteListDao) {
             mListDao.delete(note)
             it.onSuccess(Unit)
         }
-
     }
 }

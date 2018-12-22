@@ -12,7 +12,6 @@ interface ApiRegService {
     @FormUrlEncoded
     @POST("v2/5c13b90b3400003832ece252")
     fun addaNote(@Field("id") id: Long,
-                 //@Field( "description") description: String, //added
                  @Field("startDate") startDate: String,
                  @Field("endDate") endDate: String):
             Single<ApiAnswer<Note>>

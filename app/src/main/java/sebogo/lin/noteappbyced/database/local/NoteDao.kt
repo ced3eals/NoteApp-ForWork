@@ -1,9 +1,10 @@
 package sebogo.lin.noteappbyced.database.local
 
 import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Query
 import io.reactivex.Single
 import sebogo.lin.noteappbyced.model.Note
+import android.arch.persistence.room.Query
+
 
 @Dao
 interface NoteDao: BaseDoa<Note> {

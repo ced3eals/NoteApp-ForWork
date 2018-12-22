@@ -3,7 +3,6 @@ package sebogo.lin.noteappbyced.database.roomdb
 import android.content.Context
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
-
 import android.arch.persistence.room.Room
 import sebogo.lin.noteappbyced.database.local.NoteDao
 import sebogo.lin.noteappbyced.database.local.NoteListDao
@@ -22,8 +21,8 @@ abstract class NoteRoomBd: RoomDatabase() {
                 synchronized(NoteRoomBd::class.java) {
                     if (INSTANCE == null) {
                         INSTANCE = Room.databaseBuilder(context,
-                            NoteRoomBd::class.java, "note_database")
-                            .build()
+                                NoteRoomBd::class.java, "my_notes_database")
+                                .build()
                     }
                 }
             }

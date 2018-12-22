@@ -7,7 +7,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
 object ApiClient {
     private var retrofit: Retrofit? = null
 
@@ -17,7 +16,6 @@ object ApiClient {
         LOG_REQ_RES_BODY_HEADERS,
         LOG_REQ_RES_HEADERS_ONLY
     }
-
 
     fun getClient(logLevel: LogLevel): Retrofit {
 
@@ -36,18 +34,19 @@ object ApiClient {
 
 
         val client = OkHttpClient.Builder().connectTimeout(3, TimeUnit.MINUTES)
-            .writeTimeout(3, TimeUnit.MINUTES)
-            .readTimeout(3, TimeUnit.MINUTES).addInterceptor(interceptor).build()
+                .writeTimeout(3, TimeUnit.MINUTES)
+                .readTimeout(3, TimeUnit.MINUTES).addInterceptor(interceptor).build()
 
 
         if(null == retrofit) {
             retrofit = Retrofit.Builder()
-                .baseUrl("http://www.mocky.io/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(client)
-                .build()
+                    .baseUrl("http://www.mocky.io/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .client(client)
+                    .build()
         }
+
         return retrofit!!
     }
 
