@@ -7,11 +7,11 @@
             <item android:bottom="2dp"  android:left="2dp" android:right="2dp" android:top="2dp">
                 <shape>
                     <gradient android:angle="270"
-                              android:endColor="@color/colorPrimary" android:startColor="@color/colorPrimary" />
+                        android:endColor="@color/colorPrimary" android:startColor="@color/colorPrimary" />
                     <stroke android:width="0.6dp" android:color="#BABABA" />
                     <corners android:radius="4dp" />
                     <padding android:bottom="18dp" android:left="18dp"
-                             android:right="18dp" android:top="18dp" />
+                        android:right="18dp" android:top="18dp" />
                 </shape>
             </item>
         </layer-list>
